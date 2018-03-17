@@ -8,6 +8,7 @@
 #define MQTT_PASSWORD ""
 
 #include <SoftwareSerial.h>
+//https://github.com/olehs/PZEM004T
 #include <PZEM004T.h>
 
 PZEM004T pzem(D2, D1);
@@ -16,9 +17,9 @@ IPAddress ip(192, 168, 1, 1);
 //Constantes
 const String HOSTNAME  = "pzem";
 
-const char* ssid = "TopSecretNetwork";
+const char* ssid = "SSID";
 
-const char* password = "secretpsw";
+const char* password = "PASSWORD";
 
 const char* host = "emoncms.org";
 
@@ -111,10 +112,9 @@ void loop() {
 
 
       // We now create a URI for the request
-      String url = "/api/post?node=pzem&apikey=71128d82c7c98335d2010468336f0f73&json={voltagem:" + String(v) + ",amperagem:" + String(i) + ",potencia:" + String(p) + ",energia:" + String(e)+ "}";
-      //String url = "/api/post?node=pzem&apikey=71128d82c7c98335d2010468336f0f73&json={voltagem:" + String(voltagem.c_str()) + ",amperagem:" + String(amperagem.c_str()) + ",potencia:" + String(potencia.c_str()) + ",energia:" + String(energia.c_str())+ "}";
-      //String url = "/input/post.json?csv=" + String(voltagem) + "," + String(amperagem) + "&apikey=71128d82c7c98335d2010468336f0f73"; //Enter api key here
-
+      //Substituir a apikey                    ********************************
+      String url = "/api/post?node=pzem&apikey=71128d82c7c98335d201076767320f73&json={voltagem:" + String(v) + ",amperagem:" + String(i) + ",potencia:" + String(p) + ",energia:" + String(e)+ "}";
+      
       Serial.print("Requesting URL: ");
       Serial.println(url);
 
